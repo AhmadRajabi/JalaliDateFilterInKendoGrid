@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kendo Grid Persian Filter</title>
+
+    <link href="dist/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="dist/styles/kendo.rtl.min.css" rel="stylesheet" />
+    <link href="dist/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="dist/js/JalaliJSCalendar-1.4/skins/aqua/theme.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="k-rtl">
+        <div id="grid">
+
+        </div>
+    </div>
+
+    <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/kendo.all.min.js"></script>
+    <script src="dist/js/kendo.fa-IR.js"></script>
+
+<script src="dist/js/JalaliJSCalendar-1.4/calendar.js"></script>
+<script src="dist/js/JalaliJSCalendar-1.4/calendar-setup.js"></script>
+<script src="dist/js/JalaliJSCalendar-1.4/lang/calendar-fa.js"></script>
+<script src="dist/js/JalaliJSCalendar-1.4/jalali.js"></script>
+<script src="dist/js/dateFilter.js"></script>
+
+    <script>
+
+        var products = [{
+            ProductID: 1,
+            ProductName: "Product 1",
+            Date: '1396/07/19'
+        }, {
+            ProductID: 2,
+            ProductName: "Product 2",
+            Date:'1396/07/20'
+
+        }];
+
+        $("#grid").kendoGrid({
+            dataSource: {
+                data: products,
+                schema: {
+                    model: {
+                        fields: {
+                            ProductName: { type: "string" },
+                            Date: {
+                                type: "date",
+                                parse: function (value) { return value; }
+                            },
+                        }
+                    }
+                },
+                pageSize: 20
+            },
+            height: 550,
+            scrollable: true,
+            sortable: true,
+            filterable: true,
+            pageable: {
+                input: true,
+                numeric: false
+            },
+            columns: [
+                "ProductName",
+                {
+                    field: "Date",
+                    title: "Last Update", 
+                    filterable: persianDateFilter
+                },
+
+            ]
+        });
+
+    </script>
+</body>
+
+</html>
+
