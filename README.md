@@ -1,4 +1,4 @@
-# JalaliDateFilterInKendoGrid
+**Use Jalali Date Filter In Kendo Grid**
 
 ![alt text](https://github.com/AhmadRajabi/JalaliDateFilterInKendoGrid/blob/master/screen.png)
 
